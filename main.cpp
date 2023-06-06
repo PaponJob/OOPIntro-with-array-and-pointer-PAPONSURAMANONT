@@ -14,19 +14,29 @@ int i;
 (*pt_std).set_all(argv[i],atoi(argv[i+1]),atof(argv[i+2]));
     pt_std++;
    }
+  pt_std-=n;
   /*put them in 2 different loops*/
   for(i=0;i<n;i++){  
-    pt_std->print_all();
+    (*(pt_std+i)).print_all();
   }  
-  delete [] pt_std;
+  //delete [] pt_std;
   //name =oat
   //age =21
   //score=55
   //print all info
 
-
+  float Highest=pt_std[0].get_score();
+  int index=0;
+  for(i=1;i<n;i++){
+    if(pt_std[i].get_score()>Highest) {
+      index=i;
+      Highest=pt_std[i].get_score();
+    }
+  } 
+  cout<<"Highest GPA:"<<endl;
+  for(i=0;i<n;i++){
+    if(pt_std[i].get_score()==Highest)
+      pt_std[i].print_all();
   }
-  
-  
 
-
+}

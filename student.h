@@ -1,4 +1,4 @@
-#ifndef student_h
+#ifndef student_h //if not define, also put incase big file
 #define student_h
 #include <iostream>
 using namespace std;
@@ -16,8 +16,10 @@ class student{
 		    void print_name();
         void set_age(int);
         int get_age(){ return age;}
+        
+        float get_score();
        void set_all(string,int,float=0);
-       void print_all();
+       void print_all(); //exam is like this, create set_all function with 1 default value
        
 };
 void student::set_all(string n,int a,float s){
@@ -42,5 +44,8 @@ void student::set_name(string n){
   name=n;
   age=0;
   score=0;
+}
+float student::get_score(){
+  return score;
 }
 #endif
